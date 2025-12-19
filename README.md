@@ -1,7 +1,7 @@
 # AWS GenAI RAG Application
 This repository has GenAI RAG Application developed using AWS Products.
 
-Tools Used:
+## Tools Used:
 - AWS S3: Buckets for files 
 - AWS Bedrock: Knowledge Base
   - Embedding Model: Takes files from KB and returns vectors
@@ -9,3 +9,6 @@ Tools Used:
 - LLM Model: Uses Anthropic Claude 3 to generate answers
 - AWS Lambda: Functioning API
 - AWS Amplify: Frontend App for user
+
+## Schema:
+RAG App Diagram.
