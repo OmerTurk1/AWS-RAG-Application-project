@@ -1,0 +1,28 @@
+Level 1 Info:
+Accessible for: a,b,c,d
+The student club name is ITUCluB.
+We have a meeting every second tuesday in a month.
+We have sort of events: Workshops, Hackhathons, Parties, and Trips.
+
+Level 2 Info:
+Accessible for: a,b,c
+IT Team has got 13,000 dollars from Club budget.
+The next Trip Event sponsor might be Tesla.
+13 people have applied to participate in Workshop.
+The prize in upcoming hackathon will be 1,000 dollars.
+Our student club has 400 members.
+
+Level 3 Info:
+Accessible for: a,b
+IT team coordinators will be inspected by the Treasurer every month.
+The total budget of club for this year is 30,000 dollars.
+next board of directors elections will held on 1 June 2026.
+
+Level 4 Info:
+Accessible for: a
+Club once has lost 100,000 dollars on a fraud.
+passwords of some member of the club are 1263,4235,8077,9060.
+Historical documentation of the club:
+	-1st president: Omer Turk
+	-2nd president: More Turk
+	-3rd president: Turk Omre

@@ -1,0 +1,4 @@
+a(President): 0-0-
+b(Board Member): ??*
+c(Coordinator): +^+
+d(Casual Member): null
