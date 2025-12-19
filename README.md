@@ -12,3 +12,6 @@ This repository has GenAI RAG Application developed using AWS Products.
 
 ## Schema:
 [RAG App Schema](https://github.com/OmerTurk1/AWS-RAG-Application-project/blob/main/Rag%20App%20Diyagram.drawio.png)
+
+## Website Link:
+https://main.d3q1tlawbp7vwl.amplifyapp.com/
