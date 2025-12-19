@@ -1,5 +1,5 @@
 # AWS GenAI RAG Application
-This repository has GenAI RAG Application developed using AWS Products.
+This repository has GenAI RAG Application developed using AWS Products for ITUxAWS Hackathon 2025.
 
 ## Tools Used:
 - AWS S3: Buckets for files 
