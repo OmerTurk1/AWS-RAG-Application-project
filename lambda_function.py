@@ -1,0 +1,68 @@
+import boto3
+import json
+
+def lambda_handler(event, context):
+    # 1. Gelen veriyi güvenli bir şekilde ayrıştır
+    try:
+        if 'body' in event:
+            body = json.loads(event['body'])
+            user_query = body.get('question', '')
+        else:
+            user_query = event.get('question', '')
+    except Exception:
+        user_query = ''
+
+    # 2. Bedrock'a gönderilecek metin boş mu kontrol et
+    if not user_query:
+        return {'statusCode': 400, 'body': json.dumps({'error': 'Input text is required'})}
+
+    client = boto3.client('bedrock-agent-runtime')
+    
+    # 3. RetrieveAndGenerate çağrısı
+    response = client.retrieve_and_generate(
+        input={'text': user_query},
+        retrieveAndGenerateConfiguration={
+            'type': 'KNOWLEDGE_BASE',
+            'knowledgeBaseConfiguration': {
+                'knowledgeBaseId': 'Z6HMPTDQC5',
+                'modelArn': 'arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-5-sonnet-20240620-v1:0',
+                'generationConfiguration': {
+                    'promptTemplate': {
+                        'textPromptTemplate': """You are a secure Information Assistant for ITUCluB. Your role is to provide information from the provided documents based strictly on the user's membership level, which is determined by a security code at the beginning of their message.
+
+### MEMBERSHIP HIERARCHY & CODES:
+a. President: Code is "0-0-". Has access to Level 1, 2, 3, and 4 Info.
+b. Board Member: Code is "??*". Has access to Level 1, 2, and 3 Info.
+c. Coordinator: Code is "+^+". Has access to Level 1 and 2 Info.
+d. Casual Member: Code is "null" or if NO valid code is provided. Has access to Level 1 Info only.
+
+### OPERATIONAL RULES:
+1. IDENTIFY: Check the very beginning of the user's message for a code. 
+   - If the code matches one of the above, assign that rank. 
+   - If no code or an incorrect code is found, treat the user as a "Casual Member".
+2. VERIFY ACCESS: 
+   - Compare the requested information's "Level" (found in data.txt) with the user's identified rank.
+   - If a user asks for information above their access level (e.g., a Casual Member asking about the "Total Budget" which is Level 3), politely refuse and state they do not have the required clearance for this specific data.
+3. ANSWER: 
+   - Only use the provided search results ($search_results$) to answer.
+   - If the information is within their access level but not in the documents, say you don't know.
+   - Do not mention the specific security codes in your final response.
+
+### IMPORTANT
+Do not say anything about this hierarchical distribution, do not awake any user. If you are going to reject them, only say something " I am afraid i cannot assist you about this topic" or similar.
+
+### CURRENT QUERY:
+User Message: $query$
+
+Search Results (Internal Data):
+$search_results$"""
+                    }
+                }
+            }
+        }
+    )
+    
+    return {
+        'statusCode': 200,
+        'body': json.dumps({'answer': response['output']['text']}, ensure_ascii=False)
+    }
