@@ -1,3 +1,6 @@
+# Function URL:
+# https://c2ajg7zdv2qepvle7j4zjadrji0dhrhv.lambda-url.us-east-1.on.aws/
+
 import boto3
 import json
 
