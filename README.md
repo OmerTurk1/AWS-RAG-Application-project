@@ -11,4 +11,4 @@ This repository has GenAI RAG Application developed using AWS Products.
 - AWS Amplify: Frontend App for user
 
 ## Schema:
-(https://github.com/OmerTurk1/AWS-RAG-Application-project/blob/main/Rag%20App%20Diyagram.drawio.png)
+<img src="[images/demo.png](https://github.com/OmerTurk1/AWS-RAG-Application-project/blob/main/Rag%20App%20Diyagram.drawio.png)" width="400" />
