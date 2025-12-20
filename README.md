@@ -15,3 +15,4 @@ This repository has GenAI RAG Application developed using AWS Products for ITUxA
 
 ## Website Link:
 https://main.d3q1tlawbp7vwl.amplifyapp.com/
+Note: Link has expired due to the limited usage time determined for the hackathon
